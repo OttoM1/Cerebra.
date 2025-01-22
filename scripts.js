@@ -1,27 +1,31 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('.content-section');
-    const links = document.querySelectorAll('a[href^="#"]');
-    
-    // Function to toggle the visibility of content sections
-    const toggleSectionVisibility = (event) => {
-        const targetSection = document.querySelector(event.target.getAttribute('href'));
-        
-        // Hide all sections first
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Hide all sections by default
+    sections.forEach(section => {
+        section.classList.remove('visible');
+    });
+
+    // Function to toggle the visibility of a section
+    const toggleVisibility = (target) => {
+        // Hide all sections
         sections.forEach(section => {
             section.classList.remove('visible');
         });
 
-        // Toggle visibility for the clicked section
-        if (!targetSection.classList.contains('visible')) {
-            targetSection.classList.add('visible');
-        }
+        // Show the clicked section
+        const selectedSection = document.getElementById(target);
+        selectedSection.classList.add('visible');
     };
 
-    // Add event listeners for each section headline to toggle visibility
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            toggleSectionVisibility(event);
+    // Add event listeners for each navigation link
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = e.target.getAttribute('data-target');
+            toggleVisibility(target);
         });
     });
 
