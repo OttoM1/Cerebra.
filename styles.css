@@ -23,7 +23,7 @@ header {
 }
 
 header h1 {
-    font-size: 3.4rem; 
+    font-size: 3.4rem;
 }
 
 header p {
@@ -56,6 +56,24 @@ nav ul li a:hover {
     color: #FFFFFF;
 }
 
+/* Bubble Floating Effect for Section Headlines */
+.bubble {
+    position: relative;
+    padding: 10px 20px;
+    font-size: 2rem;
+    color: white;
+    background: #4CAF50;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+.bubble:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
 /* Signature Animation - Smoother and Elegant */
 @keyframes floatSignature {
     0% {
@@ -77,11 +95,11 @@ nav ul li a:hover {
 /* Fade-Up Animation */
 @keyframes fadeUp {
     0% {
-        transform: translateY(50px); 
+        transform: translateY(50px);
         opacity: 0;
     }
     100% {
-        transform: translateY(0); 
+        transform: translateY(0);
         opacity: 1;
     }
 }
@@ -150,7 +168,7 @@ footer p {
 }
 
 .email-link:hover {
-    color: ##50C878;
+    color: #50C878;
 }
 
 /* Falling Binary Canvas */
@@ -161,4 +179,9 @@ footer p {
     z-index: -1;
     pointer-events: none;
     opacity: 0.8;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
 }
