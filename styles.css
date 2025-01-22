@@ -11,7 +11,6 @@ body {
     color: #ddd;
     background-color: #000;
     padding: 0 20px;
-    overflow-x: hidden;
 }
 
 /* Header */
@@ -19,13 +18,12 @@ header {
     background-color: rgba(3, 3, 3, 0.7);
     color: white;
     text-align: center;
-    padding: 3rem 0;
-    animation: fadeIn 1.2s ease-out;
+    padding: 2rem 0;
+    animation: fadeIn 1.2s ease-out; 
 }
 
 header h1 {
-    font-size: 3.8rem; 
-    letter-spacing: 2px;
+    font-size: 3.4rem; 
 }
 
 header p {
@@ -33,137 +31,77 @@ header p {
     margin-top: 0.5rem;
 }
 
-/* Navigation - Bubble Effect */
-.bubble-nav {
+/* Navigation */
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+nav ul li {
     display: inline-block;
-    font-size: 2.4rem;
-    margin-right: 20px;
-    position: relative;
+    margin-right: 15px;
+}
+
+nav ul li a {
     color: #4CAF50;
     text-decoration: none;
-    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 2.34rem;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.bubble-nav::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    background: #4CAF50;
-    border-radius: 50%;
-    animation: bubble 1.5s infinite;
-    transform: translate(-50%, -50%);
-}
-
-.bubble-nav:hover {
-    transform: scale(1.2);
-    color: #ffffff;
-    box-shadow: 0 0 20px rgba(76, 175, 80, 1);
-}
-
-@keyframes bubble {
-    0% {
-        transform: scale(0.5);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 0;
-    }
-    100% {
-        transform: scale(0.5);
-        opacity: 1;
-    }
+nav ul li a:hover {
+    transform: scale(1.6); 
+    color: #FFFFFF;
 }
 
 /* Signature Animation */
-.signature {
-    animation: floatSignature 6s ease-in-out infinite;
+@keyframes floatSignature {
+    0% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-10px) rotate(-5deg); }
+    100% { transform: translateY(0) rotate(5deg); }
 }
 
-/* Signature Path Animation */
-@keyframes floatSignature {
-    0% {
-        transform: translateY(0) rotate(0);
-    }
-    50% {
-        transform: translateY(-15px) rotate(-5deg);
-    }
-    100% {
-        transform: translateY(0) rotate(5deg);
-    }
+/* Signature path animation */
+.signature {
+    animation: floatSignature 5s ease-in-out infinite; 
 }
 
 /* Fade-Up Animation */
 @keyframes fadeUp {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 .fade-in-up {
-    animation: fadeUp 1.5s ease-out;
+    animation: fadeUp 1.2s ease-out;
 }
 
 /* Section */
 section {
-    padding: 3rem;
-    margin: 1.5rem 0;
-    background-color: rgba(6, 6, 6, 0.8);
+    padding: 2.6rem;
+    margin: 1.3rem 0;
+    background-color: rgba(6, 6, 6, 0.7);
     color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    display: none;
     opacity: 0;
-    transform: translateY(50px);
-    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: rotateX(20deg);
+    transition: all 0.4s ease-in-out;
 }
 
 section.visible {
+    display: block;
     opacity: 1;
-    transform: translateY(0);
+    transform: rotateX(0deg);
 }
 
+/* Header of Section */
 section h2 {
     color: #4CAF50;
-    font-size: 2.6rem;
+    font-size: 2.34rem;
     margin-bottom: 1.3rem;
-}
-
-/* Email Link Hover */
-.email-link {
-    color: white;
-    text-decoration: none;
-}
-
-.email-link:hover {
-    color: #50C878;
-}
-
-/* Falling Binary Canvas */
-#matrixCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.8;
-    animation: matrixMove 60s linear infinite;
-}
-
-@keyframes matrixMove {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }
 
 /* Footer */
@@ -179,65 +117,24 @@ footer {
 
 footer p {
     color: #4CAF50;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
-Updated JavaScript (scripts.js):
-javascript
-Copy
-document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    const fadeInDuration = 1000;
 
-    // Apply fade-in effect
-    sections.forEach((section) => {
-        section.classList.add('fade-in-up');
-        setTimeout(() => {
-            section.classList.add('visible');
-        }, fadeInDuration);
-    });
+.email-link {
+    color: white;
+    text-decoration: none;
+}
 
-    // Matrix Effect Canvas
-    const canvas = document.getElementById("matrixCanvas");
-    const ctx = canvas.getContext("2d");
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+.email-link:hover {
+    color: ##50C878;
+}
 
-    const columns = canvas.width / 20;
-    const drops = Array.from({ length: columns }).map(() => 0);
-
-    function draw() {
-        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = "#0F0";
-        ctx.font = "20px monospace";
-
-        drops.forEach((y, x) => {
-            const text = Math.random() > 0.9 ? String.fromCharCode(Math.random() * 255) : " ";
-            ctx.fillText(text, x * 20, y * 20);
-
-            if (y * 20 > canvas.height && Math.random() > 0.975) {
-                drops[x] = 0;
-            }
-
-            drops[x] += Math.random() > 0.95 ? 1 : 0.5;
-        });
-    }
-
-    setInterval(draw, 60);
-
-    // Smooth Scroll for anchor links
-    const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-
-            window.scrollTo({
-                top: targetElement.offsetTop - 50,
-                behavior: 'smooth'
-            });
-        });
-    });
-});
+/* Falling Binary Canvas */
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.8;
+}
