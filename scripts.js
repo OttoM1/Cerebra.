@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeInDuration = 1000; // Adjusted for smoother fade-in
 
     // Apply fade-in effect on sections when the page loads
-    sections.forEach((section) => {
-        section.classList.add('fade-in-up');
-        setTimeout(() => {
-            section.classList.add('visible');
-        }, fadeInDuration);
-    });
+    setTimeout(() => {
+        sections.forEach((section) => {
+            section.classList.add('fade-in-up');
+            setTimeout(() => {
+                section.classList.add('visible');
+            }, fadeInDuration);
+        });
+    }, 500); // Adding slight delay for smoothness to avoid flicker on initial load
 
     // Matrix Effect for Background (Falling Code Animation)
     const canvas = document.getElementById("matrixCanvas");
