@@ -40,4 +40,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setInterval(draw, 60); // Slower interval for a slower fall
+
+    // Smooth Scroll for anchor links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop - 50, // Optional offset for header
+                behavior: 'smooth'
+            });
+        });
+    });
 });
