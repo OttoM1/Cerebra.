@@ -11,6 +11,7 @@ body {
     color: #ddd;
     background-color: #000;
     padding: 0 20px;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -18,12 +19,13 @@ header {
     background-color: rgba(3, 3, 3, 0.7);
     color: white;
     text-align: center;
-    padding: 2rem 0;
-    animation: fadeIn 1.2s ease-out; /* Slower fade-in for the header */
+    padding: 3rem 0;
+    animation: fadeIn 1.2s ease-out;
 }
 
 header h1 {
-    font-size: 3.4rem;
+    font-size: 3.8rem; 
+    letter-spacing: 2px;
 }
 
 header p {
@@ -31,65 +33,67 @@ header p {
     margin-top: 0.5rem;
 }
 
-/* Navigation */
-nav ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    margin: 1rem 0;
-}
-
-nav ul li {
+/* Navigation - Bubble Effect */
+.bubble-nav {
     display: inline-block;
-    margin-right: 15px;
-}
-
-nav ul li a {
+    font-size: 2.4rem;
+    margin-right: 20px;
+    position: relative;
     color: #4CAF50;
     text-decoration: none;
-    font-size: 2.34rem;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-nav ul li a:hover {
-    transform: scale(1.6); /* Slightly slower scale */
-    color: #FFFFFF;
-}
-
-/* Bubble Floating Effect for Section Headlines */
-.bubble {
-    position: relative;
-    padding: 10px 20px;
-    font-size: 2rem;
-    color: white;
+.bubble-nav::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
     background: #4CAF50;
-    border-radius: 50px;
-    display: inline-block;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-in-out;
+    border-radius: 50%;
+    animation: bubble 1.5s infinite;
+    transform: translate(-50%, -50%);
 }
 
-.bubble:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+.bubble-nav:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(76, 175, 80, 1);
 }
 
-/* Signature Animation - Smoother and Elegant */
+@keyframes bubble {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+}
+
+/* Signature Animation */
+.signature {
+    animation: floatSignature 6s ease-in-out infinite;
+}
+
+/* Signature Path Animation */
 @keyframes floatSignature {
     0% {
         transform: translateY(0) rotate(0);
     }
     50% {
-        transform: translateY(-10px) rotate(-5deg); /* Slow floating with slight rotation */
+        transform: translateY(-15px) rotate(-5deg);
     }
     100% {
-        transform: translateY(0) rotate(5deg); /* Return to original position */
+        transform: translateY(0) rotate(5deg);
     }
-}
-
-/* Signature path animation */
-.signature {
-    animation: floatSignature 5s ease-in-out infinite; /* Elegant float effect */
 }
 
 /* Fade-Up Animation */
@@ -104,64 +108,35 @@ nav ul li a:hover {
     }
 }
 
-/* Vendor Prefixes for Safari */
-@-webkit-keyframes fadeUp {
-    0% {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Class for elements with fade-up effect */
 .fade-in-up {
-    animation: fadeUp 1.2s ease-out; /* Slower fade-in for smooth effect */
-    -webkit-animation: fadeUp 1.2s ease-out;
-    will-change: transform, opacity;
+    animation: fadeUp 1.5s ease-out;
 }
 
 /* Section */
 section {
-    padding: 2.6rem;
-    margin: 1.3rem 0;
-    background-color: rgba(6, 6, 6, 0.7);
+    padding: 3rem;
+    margin: 1.5rem 0;
+    background-color: rgba(6, 6, 6, 0.8);
     color: white;
-    border-radius: 8px;
-    display: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 section.visible {
-    display: block;
     opacity: 1;
+    transform: translateY(0);
 }
 
-/* Header of Section */
 section h2 {
     color: #4CAF50;
-    font-size: 2.34rem;
+    font-size: 2.6rem;
     margin-bottom: 1.3rem;
 }
 
-/* Footer */
-footer {
-    background-color: rgba(6, 6, 6, 0.7);
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer p {
-    color: #4CAF50;
-    font-size: 0.9rem;
-}
-
+/* Email Link Hover */
 .email-link {
     color: white;
     text-decoration: none;
@@ -179,9 +154,90 @@ footer p {
     z-index: -1;
     pointer-events: none;
     opacity: 0.8;
+    animation: matrixMove 60s linear infinite;
 }
 
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
+@keyframes matrixMove {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
+
+/* Footer */
+footer {
+    background-color: rgba(6, 6, 6, 0.7);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    color: #4CAF50;
+    font-size: 1rem;
+}
+Updated JavaScript (scripts.js):
+javascript
+Copy
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const fadeInDuration = 1000;
+
+    // Apply fade-in effect
+    sections.forEach((section) => {
+        section.classList.add('fade-in-up');
+        setTimeout(() => {
+            section.classList.add('visible');
+        }, fadeInDuration);
+    });
+
+    // Matrix Effect Canvas
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const columns = canvas.width / 20;
+    const drops = Array.from({ length: columns }).map(() => 0);
+
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#0F0";
+        ctx.font = "20px monospace";
+
+        drops.forEach((y, x) => {
+            const text = Math.random() > 0.9 ? String.fromCharCode(Math.random() * 255) : " ";
+            ctx.fillText(text, x * 20, y * 20);
+
+            if (y * 20 > canvas.height && Math.random() > 0.975) {
+                drops[x] = 0;
+            }
+
+            drops[x] += Math.random() > 0.95 ? 1 : 0.5;
+        });
+    }
+
+    setInterval(draw, 60);
+
+    // Smooth Scroll for anchor links
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            window.scrollTo({
+                top: targetElement.offsetTop - 50,
+                behavior: 'smooth'
+            });
+        });
+    });
+});
