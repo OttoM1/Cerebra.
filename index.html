@@ -27,27 +27,18 @@
         <p>Information Processing Science Student | University of Oulu | 1st year</p>
         <nav>
             <ul>
-                <li><a href="#about-me" class="bubble" aria-label="Navigate to About Me">❓ About Me</a></li>
-                <li><a href="#skills" class="bubble" aria-label="Navigate to Skills">⚙️ Skills</a></li>
-                <li><a href="#projects" class="bubble" aria-label="Navigate to Projects">📂 Recent Projects</a></li>
-                <li><a href="#contact" class="bubble" aria-label="Navigate to Contact">📞 Contact</a></li>
+                <li><a href="#about-me" aria-label="Navigate to About Me" class="bubble-nav">❓ About Me</a></li>
+                <li><a href="#skills" aria-label="Navigate to Skills" class="bubble-nav">⚙️ Skills</a></li>
+                <li><a href="#projects" aria-label="Navigate to Projects" class="bubble-nav">📂 Recent Projects</a></li>
+                <li><a href="#contact" aria-label="Navigate to Contact" class="bubble-nav">📞 Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Animated Signature Section -->
-    <section id="signature-section" style="text-align: center; margin-top: 50px;">
+    <section id="signature-section" class="signature-section">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 100" width="600" height="100">
-            <!-- Curvy Dash before OM -->
-            <path d="M10 40 Q 40 30, 80 40 T 150 40" 
-                  stroke="#4CAF50" 
-                  stroke-width="3" 
-                  fill="transparent" 
-                  stroke-dasharray="150"
-                  stroke-dashoffset="150" 
-                  class="signature"/>
-
-            <!-- "OM" Signature with Curvy Font -->
+            <path d="M10 40 Q 40 30, 80 40 T 150 40" stroke="#4CAF50" stroke-width="3" fill="transparent" stroke-dasharray="150" stroke-dashoffset="150" class="signature"/>
             <text x="150" y="50" font-size="48" font-family="'Dancing Script', cursive" fill="none" stroke="#4CAF50" stroke-width="3" class="signature">
                 -OM
             </text>
@@ -59,15 +50,11 @@
         <!-- About Me Section -->
         <section id="about-me" class="fade-in-up">
             <h2>❓ About Me</h2>
-            <p class="highlighted-text">
-                A 21-year-old Information Processing Science student at the University of Oulu, currently in my first year. Highly passionate about software development, problem-solving, artificial intelligence, and continually expanding my technical knowledge. My core expertise at the moment lies in C and Java, as well as different computational calculations such as binary, hexadecimals, boolean algebra. On top of that, a rapidly growing knowledge in device/memory/component understanding.
-            </p>
-            <p>In addition to my academic pursuits, I enjoy staying active outside of university life through weight lifting, submission wrestling, and golf during the summer. I am a strong believer in lifelong learning and often conduct self-studying on different topics. Recently, I have familiarized myself with JavaScript, HTML, and CSS to enhance my skill set.</p>
-            <p>I pride myself on being an adaptive individual, constantly pushing my own boundaries, and unafraid of new challenges or setbacks. Always eager to learn and grow from new experiences. This mindset has equipped me to tackle complex problems while continually refining both my technical expertise and personal skills. I am eager to apply my knowledge in real-world corporate projects and am actively seeking opportunities that will prepare me for future challenges in the professional world.</p>
+            <p>A 21-year-old Information Processing Science student at the University of Oulu, currently in my first year...</p>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="fade-in-up visible">
+        <section id="skills" class="fade-in-up">
             <h2>⚙️ Skills</h2>
             <ul>
                 <li>Programming Languages: Java, C, (gaining experience in CSS, JS, & HTML)</li>
@@ -78,25 +65,21 @@
             </ul>
         </section>
 
+        <!-- Recent Projects Section -->
         <section id="projects" class="fade-in-up">
             <h2>📂 Recent Projects</h2>
-            <p><strong>1. <a href="https://replit.com/@omulari24/ATMmainC?v=1" target="_blank" aria-label="View Replit project for ATM Simulation">ATM Simulation (Replit)</a></strong></p>
-            
-            <p>A simple yet functional ATM simulator developed in C. It performs essential banking functions such as balance checking, withdrawing, and depositing money. This project, since made with C, deepened my understanding of low-level programming and system architecture, allowing me to appreciate the intricacies of memory management, pointer manipulation, and the foundational structure of modern software.</p>
+            <p><strong>1. <a href="https://replit.com/@omulari24/ATMmainC?v=1" target="_blank">ATM Simulation (Replit)</a></strong></p>
+            <p>A simple yet functional ATM simulator developed in C...</p>
             <p><strong>Key Tech:</strong> C Programming, Algorithms, Basic Data Structures</p>
-
             <p><strong>2. Portfolio Website</strong></p>
-            
-            <p>This personal project "portfolio website" was built using HTML, CSS, and JavaScript. It serves as a dynamic space to showcase my passion, technical skills and projects, continuously evolving.</p>
-            <p><strong>Key Tech:</strong> Web Development (HTML, CSS, JavaScript & Git)</p>
+            <p>This personal project "portfolio website" was built using HTML, CSS, and JavaScript...</p>
         </section>
 
         <!-- Contact Section -->
         <section id="contact" class="fade-in-up">
             <h2>📞 Contact</h2>
-            <p>Email: <a href="mailto:otto.mularii@gmail.com" class="email-link" aria-label="Send an email to Otto Oliver Mulari">otto.mularii@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/otto-oliver-mulari-2a305b348" target="_blank" aria-label="Visit LinkedIn profile">Otto Oliver Mulari</a></p>
-            <p>GitHub: Upon request :)</p>
+            <p>Email: <a href="mailto:otto.mularii@gmail.com" class="email-link">otto.mularii@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/otto-oliver-mulari-2a305b348" target="_blank">Otto Oliver Mulari</a></p>
         </section>
     </main>
 
