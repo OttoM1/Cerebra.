@@ -133,7 +133,6 @@ function resizeCanvas() {
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
-
 // Particles Array
 const particles = [];
 const particleCount = 150;
