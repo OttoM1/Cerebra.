@@ -24,7 +24,7 @@ class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 0.5 + 0.6;
+        this.radius = Math.random() * 0.7 + 1.6;
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.speedX = (Math.random() - 0.05) * 1.4;
         this.speedY = (Math.random() - 0.08) * 1.1;
