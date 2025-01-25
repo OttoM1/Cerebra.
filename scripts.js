@@ -15,7 +15,7 @@ window.addEventListener("resize", resizeCanvas);
 // Particles Array
 const particles = [];
 const particleCount = 150;
-const colors = ['#272929', '#cfb486', '#507373', '#060a0a'];
+const colors = ['#272929', '#cfb486', '#507373', '#70c2a4'];
 
 
 
@@ -24,7 +24,7 @@ class Particle {
     constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.radius = Math.random() * 3 + 1;
+        this.radius = Math.random() * 0.5 + 0.6;
         this.color = colors[Math.floor(Math.random() * colors.length)];
         this.speedX = (Math.random() - 0.05) * 1.4;
         this.speedY = (Math.random() - 0.08) * 1.1;
